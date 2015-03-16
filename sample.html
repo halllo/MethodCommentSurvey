@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="methodCommentSurveyApp">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,6 +19,7 @@
 	<![endif]-->
 </head>
 <body>
+<div ng-controller="QuestionController">
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
@@ -37,32 +38,16 @@
 	<div class="jumbotron">
 		<div class="container">
 			<h1>Methode</h1>
-			<p>"Ruft einen Wert ab, der einem TextEffect-Zeichenindex einen TextSource-Zeichenindex zuordnet."</p>
-			<p><a class="btn btn-primary btn-lg" href="#" role="button">Antworten anzeigen und Zeit messen &raquo;</a></p>
+			<p>{{question}}</p>
+			<p><a class="btn btn-primary btn-lg" href="" ng-click="showAnswers()" ng-show="readyToStart()" role="button">Antworten anzeigen und Zeit messen &raquo;</a></p>
 		</div>
 	</div>
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
-				<h3>GetTextEffectCharacterIndexFromTextSourceCharacterIndex</h3>
-				<p><a class="btn btn-default" href="#" role="button">das ist die Methode</a></p>
-			</div>
-			<div class="col-md-12">
-				<h3>Get_Text_Effect_Memberwise_Clone_Index_For_Unloaded_Exception_Stack_Trace</h3>
-				<p><a class="btn btn-default" href="#" role="button">das ist die Methode</a></p>
-			</div>
-			<div class="col-md-12">
-				<h3>Get_Text_Effect_Character_Index_From_Text_Source_Character_Index</h3>
-				<p><a class="btn btn-default" href="#" role="button">das ist die Methode</a></p>
-			</div>
-			<div class="col-md-12">
-				<h3>gettexteffectcharacterindexfromtextsourcecharacterindex</h3>
-				<p><a class="btn btn-default" href="#" role="button">das ist die Methode</a></p>
-			</div>
-			<div class="col-md-12">
-				<h3>GetTextEffectMemberwiseCloneIndexForUnloadedExceptionStackTrace</h3>
-				<p><a class="btn btn-default" href="#" role="button">das ist die Methode</a></p>
+			<div class="col-md-12" ng-repeat="answer in answers">
+				<h3>{{answer.text}}</h3>
+				<p><a class="btn btn-default" href="" ng-click="answerClick(answer)" role="button">das ist die Methode</a></p>
 			</div>
 		</div>
 
@@ -72,10 +57,16 @@
 			<p>&copy; Manuel Naujoks 2015</p>
 		</footer>
 	</div> <!-- /container -->
+</div>
+
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<script src="sample.js"></script>
+
 
 </body>
 </html>
